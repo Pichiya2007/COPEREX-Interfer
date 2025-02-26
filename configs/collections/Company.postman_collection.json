@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "970e7598-3ca6-4a47-ac74-c0c5d5ef3227",
+		"name": "Company",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37540016"
+	},
+	"item": [
+		{
+			"name": "addCompany",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlYTY0YjUzMWE0Njk3NTJhYWRlZjQiLCJpYXQiOjE3NDA1NTY3MDksImV4cCI6MTc0MDU2MDMwOX0.YtJYU7WLKiQkJCbAQgrPStQ84yR_7Y0HY2nweqyclN0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"GOMITAS EL CHINITO\",\r\n    \"description\": \"LAS MEJORES GOMITAS DE TODO CARRANZA\",\r\n    \"impactLevel\": \"Alto\",\r\n    \"yearFoundation\": 2006,\r\n    \"category\": \"Importante\",\r\n    \"contact\": \"chinito@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3006/coperex/v1/companies"
+			},
+			"response": []
+		},
+		{
+			"name": "getCompanies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3006/coperex/v1/companies"
+			},
+			"response": []
+		},
+		{
+			"name": "getReport",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlYTY0YjUzMWE0Njk3NTJhYWRlZjQiLCJpYXQiOjE3NDA1NTY3MDksImV4cCI6MTc0MDU2MDMwOX0.YtJYU7WLKiQkJCbAQgrPStQ84yR_7Y0HY2nweqyclN0",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:3006/coperex/v1/companies/reports"
+			},
+			"response": []
+		}
+	]
+}

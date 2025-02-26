@@ -82,7 +82,6 @@ export const updatePassword = async (req, res) => {
         // Guarda el usuario con la nueva contraseña
         await user.save();
 
-        // Responde con un mensaje de éxito
         return res.status(200).json({
             msg: 'Contraseña actualizada exitosamente'
         })
@@ -108,7 +107,6 @@ export const register = async (req, res) => {
             surname: data.surname,
             username: data.username,
             email: data.email,
-            phone: data.phone,
             password: encryptedPassword,
             role: data.role
         })

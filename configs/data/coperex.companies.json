@@ -1,0 +1,34 @@
+[{
+  "_id": {
+    "$oid": "67bebbfe267eb0128796445f"
+  },
+  "name": "CarWash Quicheyoa",
+  "description": "EL MEJOR CARWASH DE TODO MEZQUITAL",
+  "impactLevel": "Medio",
+  "yearFoundation": 2010,
+  "category": "Local",
+  "contact": "carwash@gmail.com",
+  "createdAt": {
+    "$date": "2025-02-26T07:00:14.269Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-26T07:00:14.269Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bec9b31fe08b022e403ec1"
+  },
+  "name": "GOMITAS EL CHINITO",
+  "description": "LAS MEJORES GOMITAS DE TODO CARRANZA",
+  "impactLevel": "Alto",
+  "yearFoundation": 2006,
+  "category": "Importante",
+  "contact": "chinito@gmail.com",
+  "createdAt": {
+    "$date": "2025-02-26T07:58:43.694Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-26T07:58:43.694Z"
+  }
+}]

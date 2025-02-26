@@ -8,6 +8,7 @@ import { dbConnection } from './mongo.js';
 import limiter from '../src/middlewares/validar-cant-peticiones.js';
 import authRoutes from '../src/auth/auth.routes.js';
 import userRoutes from '../src/users/user.routes.js';
+import companyRoutes from '../src/company/company.routes.js'
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false }));
@@ -20,7 +21,8 @@ const middlewares = (app) => {
 
 const routes = (app) => {
     app.use('/coperex/v1/auth', authRoutes);
-    app.use('/coperex/v1/users', userRoutes)
+    app.use('/coperex/v1/users', userRoutes);
+    app.use('/coperex/v1/companies', companyRoutes);
 }
 
 const conectarDB = async () => {
