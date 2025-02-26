@@ -49,14 +49,41 @@ export const addCompany = async (req, res) => {
 export const getCompanies = async (req, res) => {
     try {
 
-        const companies = await Company.find();
+        const { limite = 10, desde = 0 } = req.query;
+        const query = { status: true };
 
-        if(companies.length === 0){
-            return res.status(404).json({
-                success: false,
-                msg: 'No se encontraron empresas.'
-            })
-        }
+        const [total, companies] = await Promise.all([
+            Company.countDocuments(query),
+            Company.find(query)
+                .skip(Number(desde))
+                .limit(Number(limite))
+        ])
+
+        /*const companies = await Company.find({ status: true });
+
+        companies.sort((a, b) => a.name.localeCompare(b.name))*/
+
+        res.status(200).json({
+            success: true,
+            companies
+
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'No se pudieron obtener las empresas.',
+            error: error.message
+        })
+    }
+}
+
+export const getCompaniesA_Z = async (req, res) => {
+    try {
+        
+        const companies = await Company.find({ status: true });
+
+        companies.sort((a, b) => a.name.localeCompare(b.name));
 
         res.status(200).json({
             success: true,
@@ -67,6 +94,51 @@ export const getCompanies = async (req, res) => {
         res.status(500).json({
             success: false,
             msg: 'No se pudieron obtener las empresas.',
+            error: error.message
+        })
+    }
+}
+
+export const updateCompany = async (req, res) => {
+    try {
+        
+        const { id } = req.params;
+        const { _id, ...data } = req.body;
+
+        const company = await Company.findByIdAndUpdate(id, data, { new: true });
+
+        res.status(200).json({
+            success: true,
+            msg: 'Empresa actualizada.',
+            company
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'La empresa no se pudo actualizar.',
+            error: error.message
+        })
+    }
+}
+
+export const deleteCompany = async (req, res) => {
+
+    const { id } = req.params;
+
+    try {
+        
+        await Company.findByIdAndUpdate(id, { status: false });
+        
+        res.status(200).json({
+            success: true,
+            msg: 'La empresa se ha desactivado.',
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'La empresa no se ha podido desactivar.',
             error: error.message
         })
     }
@@ -83,7 +155,6 @@ export const generarReporte = async (req, res) => {
                 msg: 'No se encontraron empresas.'
             })
         }
-
         
         const wb = new x1.Workbook(); // Crea un nuevo libro de excel
         const ws = wb.addWorksheet('Empresas'); // Crea una hoja
@@ -111,7 +182,7 @@ export const generarReporte = async (req, res) => {
         ws.cell(1, 4).string('Año de Fundación').style(headerStyle);
         ws.cell(1, 5).string('Categoría').style(headerStyle);
         ws.cell(1, 6).string('Contacto').style(headerStyle);
-
+        ws.cell(1, 7).string('Estado').style(headerStyle);
 
         let row = 2;
         companies.forEach(company => { // Recorre todo el array de empresas y las agrega a la hoja
@@ -121,6 +192,7 @@ export const generarReporte = async (req, res) => {
             ws.cell(row, 4).number(company.yearFoundation).style(contentStyle);
             ws.cell(row, 5).string(company.category).style(contentStyle);
             ws.cell(row, 6).string(company.contact).style(contentStyle);
+            ws.cell(row, 7).string(company.status.toString()).style(contentStyle);
             row = row + 1;
         })
 

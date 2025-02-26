@@ -28,6 +28,10 @@ const CompanySchema = Schema({
     contact: {
         type: String,
         required: [true, 'El contacto es requerido.'],
+    },
+    status: {
+        type: Boolean,
+        default: true
     }
 },
     {

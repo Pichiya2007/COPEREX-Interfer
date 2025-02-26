@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "970e7598-3ca6-4a47-ac74-c0c5d5ef3227",
+		"_postman_id": "0a32e80d-0d02-46da-983f-141661d42299",
 		"name": "Company",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "37540016"
+		"_exporter_id": "37413995"
 	},
 	"item": [
 		{
@@ -31,6 +31,30 @@
 			"response": []
 		},
 		{
+			"name": "updateCompany",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JmNjVhNjMxMmM5ZDJiZGUyYWY0ODgiLCJpYXQiOjE3NDA1OTk1MTEsImV4cCI6MTc0MDYwMzExMX0.KQMOYOvfwzx9mtAT3HAQjIge1sI2mz9fFZuGdSDIlnI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"CarWash Quicheyoa\",\r\n    \"description\": \"EL MEJOR CARWASH DE TODO MEZQUITAL\",\r\n    \"impactLevel\": \"Alto\",\r\n    \"yearFoundation\": 2010,\r\n    \"category\": \"MUNDIAL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3006/coperex/v1/companies/67bebbfe267eb0128796445f"
+			},
+			"response": []
+		},
+		{
 			"name": "getCompanies",
 			"request": {
 				"method": "GET",
@@ -51,6 +75,14 @@
 					}
 				],
 				"url": "http://localhost:3006/coperex/v1/companies/reports"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCompany",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
