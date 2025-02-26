@@ -86,9 +86,9 @@ export const generarReporte = async (req, res) => {
 
         
         const wb = new x1.Workbook(); // Crea un nuevo libro de excel
-        const ws = wb.addWorksheet('Empresas');
+        const ws = wb.addWorksheet('Empresas'); // Crea una hoja
 
-        const headerStyle = wb.createStyle({ // Crea el estilo de celda
+        const headerStyle = wb.createStyle({ // Define el estilo de celda
             font: {
                 name: 'Arial',
                 color: '#000000',
@@ -105,7 +105,7 @@ export const generarReporte = async (req, res) => {
             }
         })
 
-        ws.cell(1, 1).string('Nombre').style(headerStyle);
+        ws.cell(1, 1).string('Nombre').style(headerStyle); // Agrega los encabezados a la hoja
         ws.cell(1, 2).string('Descripción').style(headerStyle);
         ws.cell(1, 3).string('Nivel de Impacto').style(headerStyle);
         ws.cell(1, 4).string('Año de Fundación').style(headerStyle);
@@ -114,8 +114,8 @@ export const generarReporte = async (req, res) => {
 
 
         let row = 2;
-        companies.forEach(company => {
-            ws.cell(row, 1).string(company.name).style(contentStyle);
+        companies.forEach(company => { // Recorre todo el array de empresas y las agrega a la hoja
+            ws.cell(row, 1).string(company.name).style(contentStyle); // Agrega los datos de la empresa a la hoja
             ws.cell(row, 2).string(company.description).style(contentStyle);
             ws.cell(row, 3).string(company.impactLevel).style(contentStyle);
             ws.cell(row, 4).number(company.yearFoundation).style(contentStyle);
@@ -124,10 +124,10 @@ export const generarReporte = async (req, res) => {
             row = row + 1;
         })
 
-        res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"); // Configurar la respuesta HTTP para la descarga
-        res.setHeader("Content-Disposition", "attachment; filename=empresas.xlsx");
+        res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"); // Indica que la respuesta va ser un archivo excel
+        res.setHeader("Content-Disposition", "attachment; filename=empresas.xlsx"); // Indica el nombre del archivo
 
-        wb.write('Empresas.xlsx', res);
+        wb.write('Empresas.xlsx', res); // Escribe el archivo y lo envía como respuesta
 
     } catch (error) {
         res.status(500).json({
