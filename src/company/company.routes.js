@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
-import { addCompany, getCompanies, updateCompany, deleteCompany, getCompaniesA_Z, generarReporte } from './company.controller.js';
+import { addCompany, getCompanies, updateCompany, getCompaniesA_Z, getCompaniesZ_A, getTrajectoryMajor, getTrajectoryMinor, generarReporte } from './company.controller.js';
 import { validarCampos } from '../middlewares/validar-campos.js';
 import { validarJWT } from '../middlewares/validar-jwt.js';
 import { tieneRole } from '../middlewares/role-validator.js';
@@ -22,6 +22,12 @@ router.get('/', getCompanies)
 
 router.get('/az', getCompaniesA_Z)
 
+router.get('/za', getCompaniesZ_A)
+
+router.get('/trajectoryMajor', getTrajectoryMajor)
+
+router.get('/trajectoryMinor', getTrajectoryMinor)
+
 router.put(
     '/:id',
     [
@@ -33,14 +39,6 @@ router.put(
     updateCompany
 )
 
-router.delete(
-    '/:id',
-    [
-        validarJWT,
-        tieneRole('ADMIN_ROLE'),
-    ],
-    deleteCompany
-)
 
 router.get(
     '/reports',

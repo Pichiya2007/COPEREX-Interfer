@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "3bba2fc0-ee2e-4343-ba26-e5567be75428",
+		"_postman_id": "0e899d81-b7de-4ab9-ac23-ae63057041da",
 		"name": "User",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "37413995"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37540016"
 	},
 	"item": [
 		{
@@ -20,20 +20,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:3006/coperex/v1/auth/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3006",
-					"path": [
-						"coperex",
-						"v1",
-						"auth",
-						"register"
-					]
-				}
+				"url": "http://localhost:3006/coperex/v1/auth/register"
 			},
 			"response": []
 		},
@@ -44,27 +31,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"prueba@gmail.com\",\r\n    \"password\": \"elmergod\"\r\n}",
+					"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:3006/coperex/v1/auth/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3006",
-					"path": [
-						"coperex",
-						"v1",
-						"auth",
-						"login"
-					]
-				}
+				"url": "http://localhost:3006/coperex/v1/auth/login"
 			},
 			"response": []
 		},
@@ -88,20 +62,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:3006/coperex/v1/auth/updatepassword",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3006",
-					"path": [
-						"coperex",
-						"v1",
-						"auth",
-						"updatepassword"
-					]
-				}
+				"url": "http://localhost:3006/coperex/v1/auth/updatepassword"
 			},
 			"response": []
 		},
@@ -125,20 +86,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "http://localhost:3006/coperex/v1/users/67be4e14501f1e6e36c3ec60",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3006",
-					"path": [
-						"coperex",
-						"v1",
-						"users",
-						"67be4e14501f1e6e36c3ec60"
-					]
-				}
+				"url": "http://localhost:3006/coperex/v1/users/67be4e14501f1e6e36c3ec60"
 			},
 			"response": []
 		},
@@ -147,19 +95,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:3006/coperex/v1/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3006",
-					"path": [
-						"coperex",
-						"v1",
-						"users"
-					]
-				}
+				"url": "http://localhost:3006/coperex/v1/users"
 			},
 			"response": []
 		}

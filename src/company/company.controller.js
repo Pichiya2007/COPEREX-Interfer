@@ -1,6 +1,12 @@
 import Company from './company.model.js';
 import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
+import path, { dirname } from 'path';
+import fs from 'fs';
+
 const require = createRequire(import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const x1 = require('excel4node');
 
@@ -10,7 +16,7 @@ export const addCompany = async (req, res) => {
         const data = req.body;
 
         const actualYear = new Date().getFullYear();
-        const yearsExperience = actualYear - data.yearFoundation;
+        const trajectory = actualYear - data.yearFoundation;
 
         if(data.yearFoundation > actualYear){
             return res.status(400).json({
@@ -24,6 +30,7 @@ export const addCompany = async (req, res) => {
             description: data.description,
             impactLevel: data.impactLevel,
             yearFoundation: data.yearFoundation,
+            trajectory: trajectory,
             category: data.category,
             contact: data.contact
         })
@@ -34,7 +41,6 @@ export const addCompany = async (req, res) => {
             success: true,
             msg: 'Empresa agregada exitosamente.',
             company,
-            yearsExperience
         })
 
     } catch (error) {
@@ -65,6 +71,7 @@ export const getCompanies = async (req, res) => {
 
         res.status(200).json({
             success: true,
+            total,
             companies
 
         })
@@ -99,13 +106,96 @@ export const getCompaniesA_Z = async (req, res) => {
     }
 }
 
-export const updateCompany = async (req, res) => {
+export const getCompaniesZ_A = async (req, res) => {
     try {
         
+        const companies = await Company.find({ status: true });
+
+        companies.sort((a, b) => b.name.localeCompare(a.name));
+
+        res.status(200).json({
+            success: true,
+            companies
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'No se pudieron obtener las empresas.',
+            error: error.message
+        })
+    }
+}
+
+export const getTrajectoryMajor = async (req, res) => {
+    try {
+
+        const companies = await Company.find({ status: true });
+
+        companies.sort((a, b) => b.trajectory - a.trajectory);
+
+        res.status(200).json({
+            success: true,
+            companies
+        })
+        
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'No se pudieron obtener las empresas.',
+            error: error.message
+        })
+    }
+}
+
+export const getTrajectoryMinor = async (req, res) => {
+    try {
+
+        const companies = await Company.find({ status: true });
+
+        companies.sort((a, b) => a.trajectory - b.trajectory);
+
+        res.status(200).json({
+            success: true,
+            companies
+        })
+        
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg: 'No se pudieron obtener las empresas.',
+            error: error.message
+        })
+    }
+}
+
+export const updateCompany = async (req, res) => {
+    try {
         const { id } = req.params;
-        const { _id, ...data } = req.body;
+        const { _id, yearFoundation, ...data } = req.body;
+
+        const actualYear = new Date().getFullYear();
+
+        if(yearFoundation){
+            if(yearFoundation > actualYear){
+                return res.status(400).json({
+                    success: false,
+                    msg: 'El año de fundación no puede ser mayor al año actual.'
+                })
+            }
+
+            data.trajectory = actualYear - yearFoundation;
+            data.yearFoundation = yearFoundation; 
+        }
 
         const company = await Company.findByIdAndUpdate(id, data, { new: true });
+
+        if(!company){
+            return res.status(404).json({
+                success: false,
+                msg: 'Empresa no encontrada.'
+            })
+        }
 
         res.status(200).json({
             success: true,
@@ -122,7 +212,7 @@ export const updateCompany = async (req, res) => {
     }
 }
 
-export const deleteCompany = async (req, res) => {
+/*export const deleteCompany = async (req, res) => {
 
     const { id } = req.params;
 
@@ -142,7 +232,7 @@ export const deleteCompany = async (req, res) => {
             error: error.message
         })
     }
-}
+}*/
 
 export const generarReporte = async (req, res) => {
     try {
@@ -180,9 +270,10 @@ export const generarReporte = async (req, res) => {
         ws.cell(1, 2).string('Descripción').style(headerStyle);
         ws.cell(1, 3).string('Nivel de Impacto').style(headerStyle);
         ws.cell(1, 4).string('Año de Fundación').style(headerStyle);
-        ws.cell(1, 5).string('Categoría').style(headerStyle);
-        ws.cell(1, 6).string('Contacto').style(headerStyle);
-        ws.cell(1, 7).string('Estado').style(headerStyle);
+        ws.cell(1, 5).string('Trayectoria').style(headerStyle);
+        ws.cell(1, 6).string('Categoría').style(headerStyle);
+        ws.cell(1, 7).string('Contacto').style(headerStyle);
+        ws.cell(1, 8).string('Estado').style(headerStyle);
 
         let row = 2;
         companies.forEach(company => { // Recorre todo el array de empresas y las agrega a la hoja
@@ -190,16 +281,35 @@ export const generarReporte = async (req, res) => {
             ws.cell(row, 2).string(company.description).style(contentStyle);
             ws.cell(row, 3).string(company.impactLevel).style(contentStyle);
             ws.cell(row, 4).number(company.yearFoundation).style(contentStyle);
-            ws.cell(row, 5).string(company.category).style(contentStyle);
-            ws.cell(row, 6).string(company.contact).style(contentStyle);
-            ws.cell(row, 7).string(company.status.toString()).style(contentStyle);
+            ws.cell(row, 5).string(company.trajectory + ' Años').style(contentStyle);
+            ws.cell(row, 6).string(company.category).style(contentStyle);
+            ws.cell(row, 7).string(company.contact).style(contentStyle);
+            ws.cell(row, 8).string(company.status.toString()).style(contentStyle);
             row = row + 1;
         })
 
-        res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"); // Indica que la respuesta va ser un archivo excel
-        res.setHeader("Content-Disposition", "attachment; filename=empresas.xlsx"); // Indica el nombre del archivo
+        const reportsDir = path.join(__dirname, '..', 'reports'); // Ruta de la carpeta donde se va a guardar el archivo
+        if(!fs.existsSync(reportsDir)){
+            fs.mkdirSync(reportsDir); // Crea la carpeta si no existe
+        }
 
-        wb.write('Empresas.xlsx', res); // Escribe el archivo y lo envía como respuesta
+        const pathExcel = path.join(reportsDir, 'Empresas.xlsx'); // Define la ruta donde se va a guardar el archivo
+
+        wb.write(pathExcel, (err, stats) => {
+            if(err) {
+                return res.status(500).json({
+                    success: false,
+                    msg: 'No se pudo generar el reporte.',
+                    error: err.message
+                })
+            } else {
+                res.download(pathExcel);
+                return res.status(200).json({
+                    success: true,
+                    msg: 'Reporte generado.'
+                })
+            }
+        })
 
     } catch (error) {
         res.status(500).json({

@@ -21,6 +21,9 @@ const CompanySchema = Schema({
         type: Number,
         required: [true, 'El año de funcación es requerida.']
     },
+    trajectory: {
+        type: Number
+    },
     category: {
         type: String,
         required: [true, 'La categoría es requerida.'],

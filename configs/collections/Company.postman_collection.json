@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "0a32e80d-0d02-46da-983f-141661d42299",
+		"_postman_id": "cbc52ee8-5f53-4666-93e1-673a1451a1dd",
 		"name": "Company",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "37413995"
+		"_exporter_id": "37540016"
 	},
 	"item": [
 		{
@@ -13,13 +13,13 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlYTY0YjUzMWE0Njk3NTJhYWRlZjQiLCJpYXQiOjE3NDA1NTY3MDksImV4cCI6MTc0MDU2MDMwOX0.YtJYU7WLKiQkJCbAQgrPStQ84yR_7Y0HY2nweqyclN0",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JmNjVhNjMxMmM5ZDJiZGUyYWY0ODgiLCJpYXQiOjE3NDA5NDk2NzgsImV4cCI6MTc0MDk1MzI3OH0.sRwc4vpm_L62XbtVdWq0aS-hMFdLCEB2ABlDwbZkbN0",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"GOMITAS EL CHINITO\",\r\n    \"description\": \"LAS MEJORES GOMITAS DE TODO CARRANZA\",\r\n    \"impactLevel\": \"Alto\",\r\n    \"yearFoundation\": 2006,\r\n    \"category\": \"Importante\",\r\n    \"contact\": \"chinito@gmail.com\"\r\n}",
+					"raw": "{\r\n        \"name\": \"Zephyr Analytics\",\r\n        \"description\": \"Análisis de datos para grandes empresas.\",\r\n        \"impactLevel\": \"Medio\",\r\n        \"yearFoundation\": 2016,\r\n        \"category\": \"Big Data\",\r\n        \"contact\": \"zephyranalytics@gmail.com\"\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -37,20 +37,20 @@
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JmNjVhNjMxMmM5ZDJiZGUyYWY0ODgiLCJpYXQiOjE3NDA1OTk1MTEsImV4cCI6MTc0MDYwMzExMX0.KQMOYOvfwzx9mtAT3HAQjIge1sI2mz9fFZuGdSDIlnI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JmNjVhNjMxMmM5ZDJiZGUyYWY0ODgiLCJpYXQiOjE3NDA5NDk2NzgsImV4cCI6MTc0MDk1MzI3OH0.sRwc4vpm_L62XbtVdWq0aS-hMFdLCEB2ABlDwbZkbN0",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"CarWash Quicheyoa\",\r\n    \"description\": \"EL MEJOR CARWASH DE TODO MEZQUITAL\",\r\n    \"impactLevel\": \"Alto\",\r\n    \"yearFoundation\": 2010,\r\n    \"category\": \"MUNDIAL\"\r\n}",
+					"raw": "{\r\n    \"name\": \"CarWash sadsd\",\r\n    \"description\": \"EL MEJOR CARWASH DE TODO MEZQUITAL\",\r\n    \"impactLevel\": \"Alto\",\r\n    \"yearFoundation\": 2010,\r\n    \"category\": \"MUNDIAL\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:3006/coperex/v1/companies/67bebbfe267eb0128796445f"
+				"url": "http://localhost:3006/coperex/v1/companies/67bf88803b0772eec5d19c65"
 			},
 			"response": []
 		},
@@ -64,25 +64,53 @@
 			"response": []
 		},
 		{
+			"name": "getTrajectoryMajor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3006/coperex/v1/companies/trajectoryMajor"
+			},
+			"response": []
+		},
+		{
+			"name": "getTrajectoryMinor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3006/coperex/v1/companies/trajectoryMinor"
+			},
+			"response": []
+		},
+		{
+			"name": "getAZ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3006/coperex/v1/companies/az"
+			},
+			"response": []
+		},
+		{
+			"name": "getZA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3006/coperex/v1/companies/za"
+			},
+			"response": []
+		},
+		{
 			"name": "getReport",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "x-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JlYTY0YjUzMWE0Njk3NTJhYWRlZjQiLCJpYXQiOjE3NDA1NTY3MDksImV4cCI6MTc0MDU2MDMwOX0.YtJYU7WLKiQkJCbAQgrPStQ84yR_7Y0HY2nweqyclN0",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JmNjVhNjMxMmM5ZDJiZGUyYWY0ODgiLCJpYXQiOjE3NDA5NTMyODIsImV4cCI6MTc0MDk1Njg4Mn0.9ySL4aOcaKHOeTGBUuywXymrwWr4OT6MErPtB4NxnfM",
 						"type": "text"
 					}
 				],
 				"url": "http://localhost:3006/coperex/v1/companies/reports"
-			},
-			"response": []
-		},
-		{
-			"name": "deleteCompany",
-			"request": {
-				"method": "GET",
-				"header": []
 			},
 			"response": []
 		}
