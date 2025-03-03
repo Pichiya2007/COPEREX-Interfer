@@ -1,72 +1,190 @@
 [{
   "_id": {
-    "$oid": "67bf87fa3b0772eec5d19c62"
+    "$oid": "67c4cc33ae2d85a0ff66f398"
   },
-  "name": "asdsad sdasd asd",
-  "description": "asd MEJORES GOMITAS DE TODO CARRANZA",
+  "name": "Alpha Tech",
+  "description": "Líder en soluciones de inteligencia artificial.",
+  "impactLevel": "Alto",
+  "yearFoundation": 2005,
+  "trajectory": 20,
+  "category": "Tecnología",
+  "contact": "alphatech@gmail.com",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-02T21:22:59.801Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-02T21:22:59.801Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c4cc41ae2d85a0ff66f39b"
+  },
+  "name": "Beta Solutions",
+  "description": "Servicios de consultoría en software.",
+  "impactLevel": "Medio",
+  "yearFoundation": 2012,
+  "trajectory": 13,
+  "category": "Consultoría",
+  "contact": "betasolutions@gmail.com",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-02T21:23:13.852Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-02T21:23:13.852Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c4cc4fae2d85a0ff66f39e"
+  },
+  "name": "Code Innovators",
+  "description": "Desarrollo de software para startups.",
+  "impactLevel": "Alto",
+  "yearFoundation": 2017,
+  "trajectory": 8,
+  "category": "Desarrollo de Software",
+  "contact": "codeinnovators@gmail.com",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-02T21:23:27.731Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-02T21:23:27.731Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c4cc58ae2d85a0ff66f3a1"
+  },
+  "name": "Delta Systems",
+  "description": "Sistemas avanzados de ciberseguridad.",
   "impactLevel": "Bajo",
-  "yearFoundation": 2006,
-  "category": "asdsad",
-  "contact": "asd@gmail.com",
+  "yearFoundation": 2010,
+  "trajectory": 15,
+  "category": "Ciberseguridad",
+  "contact": "deltasystems@gmail.com",
   "status": true,
   "createdAt": {
-    "$date": "2025-02-26T21:30:34.923Z"
+    "$date": "2025-03-02T21:23:36.306Z"
   },
   "updatedAt": {
-    "$date": "2025-02-26T21:30:34.923Z"
+    "$date": "2025-03-02T21:23:36.306Z"
   }
 },
 {
   "_id": {
-    "$oid": "67bf88803b0772eec5d19c65"
+    "$oid": "67c4cc62ae2d85a0ff66f3a4"
   },
-  "name": "Carwash Quicheyoa",
-  "description": "LOS MEJORES AUTOS LAVADOS CON LA LENGUA",
-  "impactLevel": "Alto",
-  "yearFoundation": 2006,
-  "category": "Nivel Mundial",
-  "contact": "quicheyoa@gmail.com",
+  "name": "Epsilon Marketing",
+  "description": "Agencia de marketing digital.",
+  "impactLevel": "Medio",
+  "yearFoundation": 2015,
+  "trajectory": 10,
+  "category": "Marketing",
+  "contact": "epsilonmarketing@gmail.com",
   "status": true,
   "createdAt": {
-    "$date": "2025-02-26T21:32:48.458Z"
+    "$date": "2025-03-02T21:23:46.722Z"
   },
   "updatedAt": {
-    "$date": "2025-02-26T21:32:48.458Z"
+    "$date": "2025-03-02T21:23:46.722Z"
   }
 },
 {
   "_id": {
-    "$oid": "67bf888b3b0772eec5d19c68"
+    "$oid": "67c4cc6aae2d85a0ff66f3a7"
   },
-  "name": "Carwash asdasd",
-  "description": "Lsadasdasd",
+  "name": "Future Robotics",
+  "description": "Automatización con robots inteligentes.",
   "impactLevel": "Alto",
-  "yearFoundation": 2006,
-  "category": "Nivel Mundial",
-  "contact": "sda@gmail.com",
-  "status": false,
+  "yearFoundation": 2008,
+  "trajectory": 17,
+  "category": "Robótica",
+  "contact": "futurerobotics@gmail.com",
+  "status": true,
   "createdAt": {
-    "$date": "2025-02-26T21:32:59.292Z"
+    "$date": "2025-03-02T21:23:54.326Z"
   },
   "updatedAt": {
-    "$date": "2025-02-26T21:50:07.846Z"
+    "$date": "2025-03-02T21:23:54.326Z"
   }
 },
 {
   "_id": {
-    "$oid": "67bf908f26a52863593debd1"
+    "$oid": "67c4cc73ae2d85a0ff66f3aa"
   },
-  "name": "baladas asdasd",
-  "description": "Lsadasdasd",
+  "name": "Gamma AI",
+  "description": "Desarrollo de inteligencia artificial aplicada.",
   "impactLevel": "Alto",
-  "yearFoundation": 2006,
-  "category": "Nivel Mundial",
-  "contact": "bvdsad@gmail.com",
+  "yearFoundation": 2013,
+  "trajectory": 12,
+  "category": "IA",
+  "contact": "gammaai@gmail.com",
   "status": true,
   "createdAt": {
-    "$date": "2025-02-26T22:07:11.979Z"
+    "$date": "2025-03-02T21:24:03.721Z"
   },
   "updatedAt": {
-    "$date": "2025-02-26T22:07:11.979Z"
+    "$date": "2025-03-02T21:24:03.721Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c4cc7aae2d85a0ff66f3ad"
+  },
+  "name": "Horizon Green",
+  "description": "Soluciones ecológicas y sostenibles.",
+  "impactLevel": "Medio",
+  "yearFoundation": 2011,
+  "trajectory": 14,
+  "category": "Energía Renovable",
+  "contact": "horizongreen@gmail.com",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-02T21:24:10.400Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-02T21:24:10.400Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c4cc85ae2d85a0ff66f3b0"
+  },
+  "name": "Infinity Tech",
+  "description": "Plataformas digitales innovadoras.",
+  "impactLevel": "Alto",
+  "yearFoundation": 2009,
+  "trajectory": 16,
+  "category": "Tecnología",
+  "contact": "infinitytech@gmail.com",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-02T21:24:21.198Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-02T21:24:21.198Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c4cc8aae2d85a0ff66f3b3"
+  },
+  "name": "Zephyr Analytics",
+  "description": "Análisis de datos para grandes empresas.",
+  "impactLevel": "Medio",
+  "yearFoundation": 2016,
+  "trajectory": 9,
+  "category": "Big Data",
+  "contact": "zephyranalytics@gmail.com",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-02T21:24:26.949Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-02T21:24:26.949Z"
   }
 }]

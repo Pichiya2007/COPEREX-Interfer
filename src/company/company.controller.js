@@ -13,6 +13,15 @@ const x1 = require('excel4node');
 export const addCompany = async (req, res) => {
     try {
         
+        const user = req.usuario;
+        
+        if(!user || user.email !== 'admin@gmail.com'){
+            return res.status(403).json({
+                success: false,
+                msg: 'No tienes permisos para agregar empresas, debes ser el administrador.'
+            })
+        }
+
         const data = req.body;
 
         const actualYear = new Date().getFullYear();

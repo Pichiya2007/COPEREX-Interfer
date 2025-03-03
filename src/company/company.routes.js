@@ -39,7 +39,6 @@ router.put(
     updateCompany
 )
 
-
 router.get(
     '/reports',
     [

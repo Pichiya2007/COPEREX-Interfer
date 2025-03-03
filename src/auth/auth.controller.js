@@ -98,6 +98,15 @@ export const updatePassword = async (req, res) => {
 export const register = async (req, res) => {
     try {
 
+        const usuario = req.usuario;
+        
+        if(!usuario || usuario.email !== 'admin@gmail.com'){
+            return res.status(403).json({
+                success: false,
+                msg: 'No tienes permisos para agregar clientes, debes ser el administrador.'
+            })
+        }
+
         const data = req.body;
 
         const encryptedPassword = await hash (data.password);

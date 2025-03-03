@@ -10,10 +10,16 @@
 			"name": "Register",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JmNjVhNjMxMmM5ZDJiZGUyYWY0ODgiLCJpYXQiOjE3NDA5NjUxNjgsImV4cCI6MTc0MDk2ODc2OH0.psupLpdbaZvXyWU2IK711eh0kGDM1nhykSvSyBMQc6I",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"PruebaRegister\",\r\n    \"surname\": \"PruebaRegister\",\r\n    \"username\": \"PruebaRegister\",\r\n    \"email\": \"prueba@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"raw": "{\r\n    \"name\": \"asdas\",\r\n    \"surname\": \"asdas\",\r\n    \"username\": \"sfd\",\r\n    \"email\": \"dfdf@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

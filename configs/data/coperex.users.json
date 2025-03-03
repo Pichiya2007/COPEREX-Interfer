@@ -15,40 +15,4 @@
   "updatedAt": {
     "$date": "2025-02-26T19:04:06.213Z"
   }
-},
-{
-  "_id": {
-    "$oid": "67bea709531a469752aadefb"
-  },
-  "name": "PruebaRegister",
-  "surname": "PruebaRegister",
-  "username": "PruebaRegister",
-  "email": "prueba@gmail.com",
-  "password": "$argon2id$v=19$m=65536,t=3,p=4$TpHjbAJKrFf9vaHevaBVzA$t/wyVG4LMe/XIXNyWSbUOXI8jRDp5+sD9KCtxL981RM",
-  "role": "ADMIN_ROLE",
-  "estado": true,
-  "createdAt": {
-    "$date": "2025-02-26T05:30:49.688Z"
-  },
-  "updatedAt": {
-    "$date": "2025-02-26T05:30:49.688Z"
-  }
-},
-{
-  "_id": {
-    "$oid": "67bea729531a469752aadf04"
-  },
-  "name": "asds",
-  "surname": "PrasdebaRegister",
-  "username": "sad",
-  "email": "sda@gmail.com",
-  "password": "$argon2id$v=19$m=65536,t=3,p=4$qhYNwvmBzpVqmjpbvCcs2g$vLMKOQ+Nu7peW2uAPTPQEo3270OGmn/NxwziHjuhlFI",
-  "role": "ADMIN_ROLE",
-  "estado": true,
-  "createdAt": {
-    "$date": "2025-02-26T05:31:21.646Z"
-  },
-  "updatedAt": {
-    "$date": "2025-02-26T05:31:21.646Z"
-  }
 }]
